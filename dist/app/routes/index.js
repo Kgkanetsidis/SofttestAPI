@@ -13,3 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./categoryRoute"), exports);
 __exportStar(require("./productRoute"), exports);
 __exportStar(require("./userRoutes"), exports);
+__exportStar(require("./errroLogRoute"), exports);
+__exportStar(require("./wishlistRoute"), exports);
+__exportStar(require("./CartRoute"), exports);
+__exportStar(require("./orderRoute"), exports);
