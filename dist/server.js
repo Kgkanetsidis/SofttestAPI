@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const index_1 = require("./routes/index");
+const index_1 = require("./app/routes/index");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
-const db_1 = require("./db/db");
-const helmet = require("helmet");
+const db_1 = require("./app/db/db");
+const Helmet = require("helmet");
 const compression = require("compression");
-dotenv.load();
+dotenv.config();
 var app = express();
-app.use(helmet());
+app.use(Helmet());
 app.use(compression());
-// app.get("/", (req, res) => res.send("This is get express API"));
+// app.get('/', (req, res) => res.send('This is gset API'));
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
@@ -20,14 +20,14 @@ app.use(function (req, res, next) {
 });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use("/user", index_1.userRoute);
-app.use("/category", index_1.categoryRoute);
-app.use("/product", index_1.productRoute);
+app.use('/user', index_1.userRoute);
+app.use('/category', index_1.categoryRoute);
+app.use('/product', index_1.productRoute);
 app.use("/errorLog", index_1.errorLogRoute);
 app.use("/wishlist", index_1.wishlistRoute);
 app.use("/cart", index_1.cartRoute);
 app.use("/order", index_1.orderRoute);
 app.listen(process.env.PORT || 3000, () => {
-    db_1.MongoConnect.connect().then(res => console.log("DB connected"));
-    console.log("Server running on port 3000");
+    db_1.MongoConnect.connect().then((res) => console.log('DB connected'));
+    console.log('server running on port 3000');
 });
