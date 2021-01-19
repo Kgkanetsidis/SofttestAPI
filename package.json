@@ -9,7 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./dist/server.js",
-    "start": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\"",
+    "start1": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\"",
+    "start": "nodemon .dist/server.js",
+    "postinstall": "npm run build",
     "build" : "tsc"
   },
   "author": "",
