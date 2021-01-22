@@ -23,7 +23,7 @@ class UserController {
                         res.json({
                             status: "success",
                             msg: "Login Successfull",
-                            data: token,
+                            data: token, role: result.role
                         });
                     }
                     else {
